@@ -14,7 +14,7 @@ int main() {
     lunch.insert("Sushi", 5);
 
     cout << lunch.get(2) << endl;
-    cout << lunch.get("PB&J") << endl;
+    cout << lunch.search("PB&J") << endl;
     lunch.remove(0);
     lunch.display();
 
