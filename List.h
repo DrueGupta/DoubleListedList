@@ -51,8 +51,8 @@ public:
 		return current->data;
 	}
 
-    void insert(TYPE value, int index) {
-        Node<TYPE>* noob = new Node<TYPE>(value);
+    void insert(Type value, int index) {
+        Node<Type>* noob = new Node<Type>(value);
 
         // EMPTY LIST
         if (head == nullptr) {
@@ -70,7 +70,7 @@ public:
         }
 
         // TRAVERSE LIST
-        Node<TYPE>* current = head;
+        Node<Type>* current = head;
         while (index > 0 && current != nullptr) {
             current = current->next;
             index--;
@@ -92,7 +92,7 @@ public:
     }
 
     void remove(int index) {
-        Node<TYPE>* current = head;
+        Node<Type>* current = head;
 
         // REMOVE FROM EMPTY LIST
         if (head == nullptr)
@@ -106,10 +106,21 @@ public:
             return;
         }
 
+        int sizeOfList()
+        {
+            int size = 0;
+            Node<Type>* current = head;
+            while (current != nullptr)
+            {
+                size++;
+                current = current->net;
+            }
+            return size;
+        }
         // TRAVERSE
-        while (index > 0 && current != nullptr) {
+        while (current != nullptr) {
             current = current->next;
-            index--;
+            size++;
         }
 
         // REMOVE FIRST NODE
@@ -134,7 +145,7 @@ public:
         delete current;
     }
 
-    void remove(TYPE value) {
+    void remove(Type value) {
         int index = this->search(value);
         if (index != -1)
             this->remove(index);
@@ -142,7 +153,7 @@ public:
 
     void display() {
         int index = 0;
-        Node<TYPE>* current = head;
+        Node<Type>* current = head;
         while (current != nullptr) {
             cout << index << ". " << current->data << endl;
             index++;
@@ -150,8 +161,8 @@ public:
         }
     }
 
-    int search(TYPE value) {
-        Node<TYPE>* current = head;
+    int search(Type value) {
+        Node<Type>* current = head;
         int index = 0;
         while (current != nullptr) {
             if (current->data == value)
@@ -162,9 +173,9 @@ public:
         return -1;
     }
 
-    void insert(TYPE value) {
+    void insert(Type value) {
         // Create New Node
-        Node<TYPE>* noob = new Node<TYPE>(value);
+        Node<Type>* noob = new Node<Type>(value);
 
         // EMPTY LIST
         if (head == nullptr) {
